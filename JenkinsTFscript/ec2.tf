@@ -110,15 +110,15 @@ resource "null_resource" "name" {
 
   # copy the install_jenkins.sh file from your computer to the ec2 instance 
   provisioner "file" {
-    source      = "install_jenkins.sh"
-    destination = "/tmp/install_jenkins.sh"
+    source      = "install.sh"
+    destination = "/tmp/install.sh"
   }
 
   # set permissions and run the install_jenkins.sh file
   provisioner "remote-exec" {
     inline = [
-        "sudo chmod +x /tmp/install_jenkins.sh",
-        "sh /tmp/install_jenkins.sh",
+        "sudo chmod +x /tmp/install.sh",
+        "sh /tmp/install.sh",
     ]
   }
 
